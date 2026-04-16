@@ -10,9 +10,12 @@ public class Banco {
 
     private ArrayList<ContaCorrente> contasCorrentes;
 
+    private ArrayList<Funcionario> listaFuncionarios;
+
     public Banco(String nome) {
         setNome(nome);
         this.contasCorrentes = new ArrayList<>();
+        this.listaFuncionarios = new ArrayList<>();
     }
 
     public String getNome() {
@@ -29,4 +32,11 @@ public class Banco {
     public int getNumeroDeContasCorrentes() {
         return contasCorrentes.size();
     }
+
+    public void adicionarFuncionario(String cpf, String nome, String matricula){
+        Funcionario novo = new Funcionario(cpf, nome, matricula, this);
+        listaFuncionarios.add(novo);
+    }
+
+    public Funcionario localizarFuncionario(String matricula){}
 }
