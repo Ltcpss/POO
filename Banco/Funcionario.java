@@ -13,8 +13,22 @@ public class Funcionario extends Pessoa{
         System.out.println(this.salario * 12);
     }
 
+    public String getMatricula(){
+        return this.matricula;
+    }
+
+    public Banco getEmpregador(){
+        return this.empregador;
+    }
+
+    public float getSalario(){
+        return this.salario;
+    }
+
+    public void setSalario(float salario){this.salario = salario;}
+
     @Override
     public String toString(){
-        return (super.toString() + "Matricula:" + matricula + '\'' + "Salário:" + salario + '\'');
+        return (super.toString() + "Matricula:" + matricula + '\n' + "Salário:" + salario + '\n');
     }
 }

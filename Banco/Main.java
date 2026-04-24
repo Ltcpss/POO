@@ -1,15 +1,17 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Banco meuBanco = new Banco("Banquinho");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        //acrescentar 5 funcionarios e 2 gerentes a um banco
+
+        meuBanco.adicionarFuncionario("482.391.657-09", "Fulano", "M2847", false);
+        meuBanco.adicionarFuncionario("731.045.892-14", "Sicrano", "M1593", true);
+        meuBanco.adicionarFuncionario("295.618.473-81", "Beltrano", "M7062", false); // Gerente
+        meuBanco.adicionarFuncionario("864.237.915-36", "Fulana", "M4381", false);
+        meuBanco.adicionarFuncionario("547.923.186-52", "Sicrana", "M9274", true);
+
+        //promover 1 funcionario e 1 gerente
+        meuBanco.promoverFuncionario(meuBanco.localizarFuncionario("M2847"));
+        meuBanco.promoverFuncionario(meuBanco.localizarFuncionario("M9274"));
     }
 }

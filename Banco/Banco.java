@@ -33,10 +33,39 @@ public class Banco {
         return contasCorrentes.size();
     }
 
-    public void adicionarFuncionario(String cpf, String nome, String matricula){
-        Funcionario novo = new Funcionario(cpf, nome, matricula, this);
+    public void adicionarFuncionario(String cpf, String nome, String matricula, boolean ehGerente){
+        Funcionario novo;
+
+        if(ehGerente){
+            novo = new Gerente (cpf, nome, matricula, this);
+        }
+        else{
+        novo = new Funcionario(cpf, nome, matricula, this);
+        }
         listaFuncionarios.add(novo);
     }
 
-    public Funcionario localizarFuncionario(String matricula){}
+    public Funcionario localizarFuncionario(String matricula){
+        for(Funcionario f : listaFuncionarios){
+            if(f.getMatricula().equals(matricula)){
+                return f;
+            }
+        }
+        return null; //Caso não encontre funcionario
+    }
+
+    public Gerente localizarGerente(String matricula){
+        for(Funcionario f : listaFuncionarios){
+            if(f.getMatricula().equals(matricula) && f instanceof Gerente gerente){
+                return gerente;
+            }
+        }
+        return null;
+    }
+
+    public void promoverFuncionario(Funcionario funcionario){
+        funcionario.setSalario((float)(1.3 * funcionario.getSalario()));
+        System.out.println("Parabéns " + funcionario.getNome() + ", você foi promovido");
+        System.out.println(funcionario);
+    }
 }
