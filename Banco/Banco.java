@@ -40,7 +40,7 @@ public class Banco {
             novo = new Gerente (cpf, nome, matricula, this);
         }
         else{
-        novo = new Funcionario(cpf, nome, matricula, this);
+            novo = new Funcionario(cpf, nome, matricula, this);
         }
         listaFuncionarios.add(novo);
     }
